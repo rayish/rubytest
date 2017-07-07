@@ -7,16 +7,29 @@ end
 p array
 eiji = ("a".."z").to_a
 eijisu = Array.new(26,0)
-p eiji
 string = "I am a Ruby hacker"
-#mojibox = []
 while moji = string.slice!(0)
-  eiji.each do |count|
-    s = Regexp.new(eiji[count])
-    if s =~ moji
-      eijisu[count] += 1
+  for i in 0...26
+    if eiji[i].casecmp(moji) == 0
+      eijisu[i] += 1
     end
   end
-#  mojibox << moji
 end
-p eijisu
+for i in 0...26
+  print eiji[i], ":", eijisu[i], "\n"
+end
+suji = 0
+string = "七千百二十三"
+kansuji = ["十","百","千","万","億"]
+reversestring = string.reverse
+while moji = reversestring.slice!(0)
+  for i in kansuji.size - 1
+    if kansuji[i].casecmp(moji) == 0
+      if kansuji[i+1].casecmp(moji) == 0
+        suji += 10^(i+1)
+      else
+
+      end
+    end
+  end
+end
