@@ -16,20 +16,39 @@ while moji = string.slice!(0)
   end
 end
 for i in 0...26
-  print eiji[i], ":", eijisu[i], "\n"
+  print eiji[i], ":", "★" * eijisu[i], "\n"
 end
 suji = 0
-string = "七千百二十三"
-kansuji = ["十","百","千","万","億"]
-reversestring = string.reverse
-while moji = reversestring.slice!(0)
-  for i in kansuji.size - 1
-    if kansuji[i].casecmp(moji) == 0
-      if kansuji[i+1].casecmp(moji) == 0
-        suji += 10^(i+1)
-      else
-
-      end
+string = "二億六千百五十二万七千百二十三"
+kansuji = {"零" => 0,"一" => 1,"二" => 2,"三" => 3,"四" => 4,"五" => 5,"六" => 6,"七" => 7,"八" => 8,"九" => 9}
+kansuji_zyu = {"十" => 1,"百" => 2,"千" => 3, "万" => 4, "億" => 8, "兆" => 12}
+reverseString = string.reverse
+renzoku = false
+suuti = 0
+zyuzyou = 0
+zyu = 1
+while moji = reverseString.slice!(0)
+  if kansuji.has_key?(moji) == false
+    if renzoku == false
+      renzoku = true
+    else
+      suuti += zyu
     end
+    if zyuzyou < kansuji_zyu["万"]
+      zyuzyou = kansuji_zyu[moji]
+    elsif zyuzyou < kansuji_zyu["億"]
+#      p zyuzyou, kansuji_zyu["億"]
+      zyuzyou = kansuji_zyu[moji] + 4
+#      p moji
+#      p kansuji_zyu[moji]
+    elsif zyuzyou < kansuji_zyu["兆"]
+      zyuzyou = kansuji_zyu[moji] + 8
+    else
+      zyuzyou = kansuji_zyu[moji] + 12
+    end
+    zyu = 10 ** zyuzyou
+  else
+    renzoku = false
+    suuti += (kansuji[moji] * zyu)
   end
 end
