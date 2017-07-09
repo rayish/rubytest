@@ -34,21 +34,23 @@ while moji = reverseString.slice!(0)
     else
       suuti += zyu
     end
+    print "st", zyuzyou, "\n"
     if zyuzyou < kansuji_zyu["万"]
       zyuzyou = kansuji_zyu[moji]
     elsif zyuzyou < kansuji_zyu["億"]
-#      p zyuzyou, kansuji_zyu["億"]
-      zyuzyou = kansuji_zyu[moji] + 4
-#      p moji
-#      p kansuji_zyu[moji]
+      zyuzyou = kansuji_zyu[moji] + kansuji_zyu["万"]
+    elsif zyuzyou == kansuji_zyu["億"]
+      zyuzyou = kansuji_zyu[moji] - kansuji_zyu["万"]
     elsif zyuzyou < kansuji_zyu["兆"]
       zyuzyou = kansuji_zyu[moji] + 8
     else
       zyuzyou = kansuji_zyu[moji] + 12
     end
+    p zyuzyou
     zyu = 10 ** zyuzyou
   else
     renzoku = false
     suuti += (kansuji[moji] * zyu)
+    p suuti
   end
 end
