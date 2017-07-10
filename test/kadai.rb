@@ -18,8 +18,6 @@ p eijiHash
 while moji = string.slice!(0)
   if moji != " "
     eijiCount[eijiHash[moji.downcase]] += 1
-#    puts moji.downcase
-#    puts eijiHash[moji.downcase!]
   end
 end
 for i in 0...26
