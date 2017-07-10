@@ -7,14 +7,13 @@ ary.each do |i|
 end
 p array
 p '----------------------------------------------------------------'
+string = "I am a Ruby hacker"
+puts string
 eiji = ("a".."z").to_a
 eijisu = (0...26).to_a
 eijiCount = Array.new(26,0)
 ary = [eiji,eijisu].transpose
-p ary
 eijiHash = Hash[*ary.flatten]
-p eijiHash
-  string = "I am a Ruby hacker"
 while moji = string.slice!(0)
   if moji != " "
     eijiCount[eijiHash[moji.downcase]] += 1
