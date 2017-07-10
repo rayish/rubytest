@@ -8,18 +8,23 @@ end
 p array
 p '----------------------------------------------------------------'
 eiji = ("a".."z").to_a
-eijisu = Array.new(26,0)
-string = "I am a Ruby hacker"
+eijisu = (0...26).to_a
+eijiCount = Array.new(26,0)
+ary = [eiji,eijisu].transpose
+p ary
+eijiHash = Hash[*ary.flatten]
+p eijiHash
+  string = "I am a Ruby hacker"
 while moji = string.slice!(0)
-  for i in 0...26
-    if eiji[i].casecmp(moji) == 0
-      eijisu[i] += 1
-    end
+  if moji != " "
+    eijiCount[eijiHash[moji.downcase]] += 1
+#    puts moji.downcase
+#    puts eijiHash[moji.downcase!]
   end
 end
 for i in 0...26
-  if eijisu[i] != 0
-    print eiji[i], ":", "★" * eijisu[i], "\n"
+  if eijiCount[i] != 0
+    print eiji[i], ":", "★" * eijiCount[i], "\n"
   end
 end
 p '----------------------------------------------------------------'
