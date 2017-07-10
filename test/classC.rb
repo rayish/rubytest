@@ -13,16 +13,18 @@ class Dog
     return @name + "(" + @kind + ")"
   end
 end
+#------------------------------------------------------------
 class Akitaken < Dog
   Kind = "秋田犬"
-    def initialize(name)
-      super
-      @kind = Kind
-    end
-    def printBark
-      puts "#{@bark}!!"
-    end
+  def initialize(name)
+    super
+    @kind = Kind
+  end
+  def printBark
+    puts "#{@bark}!!"
+  end
 end
+#------------------------------------------------------------
 class Chihuahua < Dog
   Kind = "チワワ"
   def initialize(name)
