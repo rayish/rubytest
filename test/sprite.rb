@@ -7,21 +7,47 @@ class Ball < Sprite
     super
     self.x = 200
     self.y = 200
-    @mx, @my = 2.0, 2.0   #多重代入
+    @mx, @my = 3.0, 3.0   #多重代入
+    @flying = false
+    @kazu = 1
     self.image = @@image
   end
-  def hit
-    @my *= -1
-  end
-  def update
-    self.x += @mx
-    self.y += @my
-    if self.x >= 639 - @@image.width || self.x <= 0
+  def hit(obj)
+    p obj.x
+    p self.x
+    p self.x - obj.x
+    if (self.x - obj.x).abs < 20 || (self.x - obj.x).abs > 78
       @mx *= -1
     end
-    if self.y >= 479 - @@image.height || self.y <= 0
-      @my *= -1
+    @my *= -1 if @my >= 0
+  end
+  def update
+    if @flying
+      self.x += @mx
+      self.y += @my
+      if self.x >= 639 - @@image.width || self.x <= 0
+        @mx *= -1
+      end
+#      if self.y >= 479 - @@image.height || self.y <= 0
+      if self.y <= 0
+        @my *= -1
+      end
+      if self.y >= 479 - @@image.height
+        @flying = false
+        @kazu -= 1
+      end
+    else
+      if @kazu != 0
+        self.x = Input.mouse_pos_x
+        self.y = 380
+        if Input.mouse_push?(M_LBUTTON)
+          @flying = true
+        end
+      end
     end
+  end
+  def getkazu
+    return @kazu
   end
 end
 
@@ -47,19 +73,19 @@ class Block < Sprite
     self.x = x
     self.y = y
     eval "self.image = @@image_#{color}"
-#    if color == "yellow"
-#      self.image = @@image_yellow
-#    elsif color == "cyan"
-#      self.image = @@image_cyan
-#    else
-#      self.image = @@image_magenta
-#    end
   end
-  def shot
+  def shot(obj)
+#    if (self.x - obj.x + 10).abs > (self.y - obj.y + 10).abs
+#      obj.x *= -1
+#    end
     self.vanish
   end
 end
-s = Ball.new
+class Block_factory
+  def create(color,x,y)
+  end
+end
+ball = Ball.new
 p = Pad.new
 blk = []
 16.times do |i|
@@ -71,15 +97,16 @@ end
 16.times do |i|
   blk << Block.new("magenta", i * 40, 100)
 end
-
+font = Font.new(32)
 Window.loop do
   Sprite.draw(blk)
-  if s === blk
-  end
-  Sprite.check(blk, s)
-  s.update
-  s.draw
-  Sprite.check(p, s)
+  Sprite.check(blk, ball)
+  ball.update
+  ball.draw
+  Sprite.check(p, ball)
   p.update
   p.draw
+  if ball.getkazu == 0
+    Window.draw_font(240, 200, "GAME OVER", font) 
+  end
 end
