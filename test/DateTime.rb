@@ -77,14 +77,13 @@ p calendarTable
 for i in 1..getuMatu
   calendarTable << i
 end
-p calendarTable
 puts '------------------------------------------------------------'
 print year , "年" , month , "月" , "\n"
 print "日 月 火 水 木 金 土\n"
 for i in 0...calendarTable.size
   if calendarTable[i].to_i < 10
-    print " " 
-  end 
+    print " "
+  end
   print calendarTable[i]
   print " "
   print "\n" if (i+1) % 7 == 0
@@ -99,11 +98,10 @@ last_day = Date.new(Time.now.year, Time.now.month+1, 1) - 1
 date_ary = (first_day.day..last_day.day).to_a
 
 date_ary.unshift(nil)
-first_day.wday.times do 
+first_day.wday.times do
   date_ary.unshift(nil)
 end
 
-#p date_ary
 w_days.each do |wday|
   print wday, " "
 end
