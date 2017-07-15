@@ -57,14 +57,13 @@ rescue
 ensure
   xl.Quit
 end
-#def makeString(ketasu, mojiretu)
-#  if mojiIndex < mojiTable.size
-#    mojiretu  = mojiretu.chop! + mojiTable[mojiIndex]
-#  end
-#    mojiIndex += 1
-#  flg = true if mojiretu.size > ketasu
-#  return flg, mojiretu
-#end
+def makeString(ketasu, mojiretu)
+  return 0 if ketasu < 0
+  mojiTable.each do |moji|
+    mojiretu << moji
+    mojiretu << makeString(ketasu - 1, mojiretu)
+  end
+end
 #def fnct
 #  mojiTable.each do |i|
 #    mojiretu << i
