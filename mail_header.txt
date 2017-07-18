@@ -1,0 +1,20 @@
+X-Apparently-To: 		os2warp452@yahoo.co.jp via 114.111.98.189; Tue, 05 Jul 2011 21:57:35 +0900
+Return-Path: 		<error@ml.mill.jp>
+X-Originating-IP: 		[61.121.198.88]
+Received-SPF: 		pass (mail-um.net-research.jp: domain of error@ml.mill.jp designates 61.121.198.88 as permitted sender) receiver=mail-um.net-research.jp; client-ip=61.121.198.88; envelope-from=error@ml.mill.jp;
+Authentication-Results: 		mta587.mail.kks.yahoo.co.jp from=macromill.com; domainkeys=neutral (no sig); dkim=neutral (no sig) header.i=@macromill.com
+Received: 		from 61.121.198.88 (HELO mail-um.net-research.jp) (61.121.198.88) by mta587.mail.kks.yahoo.co.jp with SMTP; Tue, 05 Jul 2011 21:57:35 +0900
+Received: 		from unknown (unknown [10.10.26.53]) by vspring-mail(SENDMAGIC/2.5.3) with smtp; Tue,05 Jul 2011 21:57:32 +0900 (JST)
+Date: 		Tue, 5 Jul 2011 21:57:31 +0900 (GMT+09:00)
+From: 		
+=?iso-2022-jp?B?GyRCJV4lLyVtJV8layFKJVclbCViGyhC?= =?iso-2022-jp?B?GyRCJU4hISUiJXMlMSE8JUghSxsoQg==?= <mm-support@macromill.com>  
+Reply-To: 		=?iso-2022-jp?B?GyRCJV4lLyVtJV8layFKJVclbCViGyhC?= =?iso-2022-jp?B?GyRCJU4hISUiJXMlMSE8JUghSxsoQg==?= <mm-support@macromill.com>
+To: 		os2warp452@yahoo.co.jp
+Subject: 		=?iso-2022-jp?B?GyRCIVolVyVsJWIlTiFfJVUlISVfJWohPCVeGyhC?= =?iso-2022-jp?B?GyRCITwlSDB6NDkzKztPNS1HMCEqIVslIiU1JVIbKEI=?= =?iso-2022-jp?B?IBskQiVWJWshPCVpJVklaxsoQiAbJEIkKjtuJDclLSVjGyhC?= =?iso-2022-jp?B?GyRCJXMlWiE8JXMkSzRYJDkkayUiJXMlMSE8JUgbKEI=?=
+Mime-Version: 		1.0
+Content-Type: 		text/plain; charset="ISO-2022-JP"
+Content-Transfer-Encoding: 		7bit
+X-SM-ID: 		01,59010704001,5901070400102,00021,20110705215602,MX0067537 0590
+Message-ID: 		<1309870652.15.002650F8@vspring-mail>
+Content-Length: 		4025
+
