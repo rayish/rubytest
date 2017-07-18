@@ -37,6 +37,7 @@ p atest
 #-----------------------------------ここまでコメント
 p mojiretu
 exit(0)
+
 #fnct
   i = 0
 begin
@@ -56,6 +57,10 @@ rescue
   retry 
 ensure
   xl.Quit
+end
+def makeString(ketasu, mojiretu)
+  return true if ketasu <= 0
+   
 end
 #def makeString(ketasu, mojiretu)
 #  if mojiIndex < mojiTable.size
@@ -85,3 +90,4 @@ end
 #    end
 #  end
 #end
+#http://bleis-tift.hatenablog.com/entry/20120119/1326944722
