@@ -3,6 +3,7 @@ require 'dxruby'
 $font_j = Font.new(32,"MS ゴシック")
 
 class Times < Font
+  @timer
   def initialize
   end
   def disp
