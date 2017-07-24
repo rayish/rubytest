@@ -60,3 +60,42 @@ for i in (0...input_lines[1])
     end
     puts kingaku
 end
+input_lines = gets.chomp!.split(" ").map(&:to_i)
+str = {}
+for i in (0...input_lines[0])
+    /\s/ =~ gets.chomp!
+#    lines =~ /\s/
+    a = $`
+    b = $'
+    if str.has_key?(a)
+        str[a] += b.to_i
+    else
+        str[a] = b.to_i
+    end
+end
+strNew = {}
+strNew = Hash[str.sort]
+for i in (0...input_lines[1])
+    checkFlg = false
+    kingaku = 0
+    string = gets.chomp!
+#    strNew = str.select{|s, k| /^#{string}/ =~ s}
+#    strNew.each_key do |key|
+#        kingaku += str[key]
+#    end
+    if strNew.has_key?(string)
+        kingaku = strNew[string]
+    else
+        strNew.each_key do |key|
+            if /^#{string}/ =~ key
+                kingaku += strNew[key]
+                checkFlg = true
+            else
+                if checkFlg == true
+                    break
+                end
+            end
+        end
+    end
+    puts kingaku
+end
